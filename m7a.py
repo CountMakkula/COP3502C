@@ -3,7 +3,7 @@ def bin(decimal):
     Binary=[]
     ReturnStr=""
     if decimal==0:
-        return 0
+        return "0"
     while decimal>=1:
         Binary.append(decimal%2)
         decimal = decimal//2
