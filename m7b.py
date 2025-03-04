@@ -1,7 +1,10 @@
 #Data parsing function
 def parse_student(data):
     StudentInfo = {}
-    StudentInfo["id"] = data[:8]
+    if  data[:7] == "0000000":
+        StudentInfo["id"] = int(data[7])
+    else:
+        StudentInfo["id"] = int(data[:8])
     i = 0
     for index, value in enumerate(data[8:]):
         if str(value) == "0" or str(value) == "1":
