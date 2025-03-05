@@ -26,8 +26,6 @@ def insert_chip(board, col, chip_type):
 
 #Check winner
 def check_if_winner(board, col, row, chip_type):
-    RowCheck = False
-    ColCheck = False
     GameBoard[row][col] = chip_type
     #Check across row
     InRow=0
@@ -36,7 +34,7 @@ def check_if_winner(board, col, row, chip_type):
             InRow = -1
         InRow+=1
         if InRow == 4:
-            RowCheck = True
+            Checks[0] = True
             break
     #Check across column
     InRow=0
@@ -45,9 +43,20 @@ def check_if_winner(board, col, row, chip_type):
             InRow = -1
         InRow+=1
         if InRow == 4:
-            ColCheck = True
+            Checks[1] = True
             break
-    return RowCheck or ColCheck
+    #Check for draw
+    for index, i in enumerate(GameBoard):
+        Check = False
+        for val in GameBoard[index]:
+            if val == "-":
+                Checks[2] = False
+                Check = True
+                break
+        if Check:
+            break
+        Checks[2] = True
+    return (Checks[0] or Checks[1]) or Checks[2]
 
 Height = int(input("What would you like the height of the board to be? "))
 Length = int(input("What would you like the length of the board to be? "))
@@ -56,6 +65,7 @@ print_board(GameBoard)
 print()
 Turn = 1
 GameWon = False
+Checks = [False, False, False]
 print("Player 1: x\nPlayer 2: o\n")
 
 #Game loop
@@ -73,7 +83,10 @@ while not GameWon:
     print()
 
 #End Game message
-if Turn == 1:
-    print("Player 2 won the game!")
+if Checks[2]:
+    print("Draw. Nobody wins.")
 else:
-    print("Player 1 won the game!")
+    if Turn == 1:
+        print("Player 2 won the game!")
+    else:
+        print("Player 1 won the game!")
