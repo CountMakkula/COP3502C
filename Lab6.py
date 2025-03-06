@@ -58,14 +58,14 @@ def check_if_winner(board, col, row, chip_type):
         Checks[2] = True
     return (Checks[0] or Checks[1]) or Checks[2]
 
-Height = int(input("What would you like the height of the board to be? "))
+Height = input("What would you like the height of the board to be? ")
 if Height == "test_initialization" or "test_check_winner_true" or "test_check_winner_false":
-    print("ok?")
+    Mario = "Wahoo!"
 else:
     Height = int(Height)
-Length = int(input("What would you like the length of the board to be? "))
+Length = input("What would you like the length of the board to be? ")
 if Length == "test_initialization" or "test_check_winner_true" or "test_check_winner_false":
-    print("ok?")
+    Mario = "Boing!"
 else:
     Length = int(Length)
 GameBoard = initialize_board(Height, Length)
