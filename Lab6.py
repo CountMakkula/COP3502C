@@ -69,6 +69,7 @@ def main():
     except:
         Length = 0
         GameWon = True
+    GameBoard = initialize_board(Height, Length)
     print_board(GameBoard)
     print()
     print("Player 1: x\nPlayer 2: o\n")
@@ -96,7 +97,6 @@ def main():
         else:
             print("Player 1 won the game!")
 
-GameBoard = initialize_board(Height, Length)
 Turn = 1
 Checks = [False, False, False]
 GameWon = False
