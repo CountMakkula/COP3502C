@@ -1,7 +1,4 @@
 #Connect 4 Lab
-GameBoard = initialize_board(Height, Length)
-Turn = 1
-Checks = [False, False, False]
 #Initialize board
 def initialize_board(num_rows, num_cols):
     Board = []
@@ -62,7 +59,6 @@ def check_if_winner(board, col, row, chip_type):
     return (Checks[0] or Checks[1]) or Checks[2]
 
 def main():
-    GameWon = False
     try:
         Height = int(input("What would you like the height of the board to be? "))
     except:
@@ -100,5 +96,9 @@ def main():
         else:
             print("Player 1 won the game!")
 
+GameBoard = initialize_board(Height, Length)
+Turn = 1
+Checks = [False, False, False]
+GameWon = False
 if __name__ == "__main__":
     main()
