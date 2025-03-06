@@ -94,3 +94,47 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+#Extra functions for checking because ?????????? ya know
+def initialize_board(num_rows, num_cols):
+    Board = []
+    # Makes the rows
+    for i in range(num_rows):
+        Board.append([])
+        # Makes the columns
+        for j in range(num_cols):
+            Board[i].append("-")
+    return Board
+def check_if_winner(board, col, row, chip_type):
+    Checks = [False, False, False]
+    board[row][col] = chip_type
+    #Check across row
+    InRow=0
+    for val in board[row]:
+        if val != chip_type:
+            InRow = -1
+        InRow+=1
+        if InRow == 4:
+            Checks[0] = True
+            break
+    #Check across column
+    InRow=0
+    for index, i in enumerate(board):
+        if board[index][col] != chip_type:
+            InRow = -1
+        InRow+=1
+        if InRow == 4:
+            Checks[1] = True
+            break
+    #Check for draw
+    for index, i in enumerate(board):
+        Check = False
+        for val in board[index]:
+            if val == "-":
+                Checks[2] = False
+                Check = True
+                break
+        if Check:
+            break
+        Checks[2] = True
+    return (Checks[0] or Checks[1]) or Checks[2]
