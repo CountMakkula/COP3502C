@@ -58,43 +58,47 @@ def check_if_winner(board, col, row, chip_type):
         Checks[2] = True
     return (Checks[0] or Checks[1]) or Checks[2]
 
-GameWon = False
-try:
-    Height = int(input("What would you like the height of the board to be? "))
-except:
-    Height = 0
-    GameWon = True
-try:
-    Length = int(input("What would you like the length of the board to be? "))
-except:
-    Length = 0
-    GameWon = True
-GameBoard = initialize_board(Height, Length)
-print_board(GameBoard)
-print()
-Turn = 1
-Checks = [False, False, False]
-print("Player 1: x\nPlayer 2: o\n")
-
-#Game loop
-while not GameWon:
-    PlayerChoice = int(input(f"Player {Turn}: Which column would you like to choose? "))
-    if Turn == 1:
-        Turn = 2
-        Chip = "x"
-    else:
-        Turn = 1
-        Chip = "o"
-    Row = insert_chip(GameBoard, PlayerChoice, Chip)
-    GameWon = check_if_winner(GameBoard, PlayerChoice, Row, Chip)
+def main():
+    GameWon = False
+    try:
+        Height = int(input("What would you like the height of the board to be? "))
+    except:
+        Height = 0
+        GameWon = True
+    try:
+        Length = int(input("What would you like the length of the board to be? "))
+    except:
+        Length = 0
+        GameWon = True
+    GameBoard = initialize_board(Height, Length)
     print_board(GameBoard)
     print()
+    Turn = 1
+    Checks = [False, False, False]
+    print("Player 1: x\nPlayer 2: o\n")
 
-#End Game message
-if Checks[2]:
-    print("Draw. Nobody wins.")
-else:
-    if Turn == 1:
-        print("Player 2 won the game!")
+    #Game loop
+    while not GameWon:
+        PlayerChoice = int(input(f"Player {Turn}: Which column would you like to choose? "))
+        if Turn == 1:
+            Turn = 2
+            Chip = "x"
+        else:
+            Turn = 1
+            Chip = "o"
+        Row = insert_chip(GameBoard, PlayerChoice, Chip)
+        GameWon = check_if_winner(GameBoard, PlayerChoice, Row, Chip)
+        print_board(GameBoard)
+        print()
+
+    #End Game message
+    if Checks[2]:
+        print("Draw. Nobody wins.")
     else:
-        print("Player 1 won the game!")
+        if Turn == 1:
+            print("Player 2 won the game!")
+        else:
+            print("Player 1 won the game!")
+
+if __name__ == "__main__":
+    main()
