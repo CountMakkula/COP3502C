@@ -1,4 +1,7 @@
 #Connect 4 Lab
+GameBoard = initialize_board(Height, Length)
+Turn = 1
+Checks = [False, False, False]
 #Initialize board
 def initialize_board(num_rows, num_cols):
     Board = []
@@ -70,11 +73,8 @@ def main():
     except:
         Length = 0
         GameWon = True
-    GameBoard = initialize_board(Height, Length)
     print_board(GameBoard)
     print()
-    Turn = 1
-    Checks = [False, False, False]
     print("Player 1: x\nPlayer 2: o\n")
 
     #Game loop
