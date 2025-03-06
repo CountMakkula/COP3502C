@@ -97,8 +97,8 @@ def main():
         else:
             print("Player 1 won the game!")
 
-Turn = 1
-Checks = [False, False, False]
-GameWon = False
 if __name__ == "__main__":
+    Turn = 1
+    Checks = [False, False, False]
+    GameWon = False
     main()
