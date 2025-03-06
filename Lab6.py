@@ -58,8 +58,14 @@ def check_if_winner(board, col, row, chip_type):
         Checks[2] = True
     return (Checks[0] or Checks[1]) or Checks[2]
 
-Height = int(input("What would you like the height of the board to be? "))
-Length = int(input("What would you like the length of the board to be? "))
+try:
+    Height = int(input("What would you like the height of the board to be? "))
+except:
+    Height = 0
+try:
+    Length = int(input("What would you like the length of the board to be? "))
+except:
+    Length = 0
 GameBoard = initialize_board(Height, Length)
 print_board(GameBoard)
 print()
