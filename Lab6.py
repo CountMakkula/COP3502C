@@ -60,6 +60,8 @@ def check_if_winner(board, col, row, chip_type):
 
 def main():
     GameWon = False
+    Turn = 1
+    Checks = [False, False, False]
     try:
         Height = int(input("What would you like the height of the board to be? "))
     except:
