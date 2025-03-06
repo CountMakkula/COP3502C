@@ -104,4 +104,5 @@ if __name__ == "__main__":
     Turn = 1
     Checks = [False, False, False]
     GameWon = False
+    GameBoard = []
     main()
