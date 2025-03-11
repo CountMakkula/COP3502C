@@ -45,7 +45,7 @@ def collatz_sequence(n):
             print(f"{n:.0f}", end=" ")
             return collatz_sequence(n / 2)
         elif n == 1:
-            print(1, end=" ")
+            print(1)
             return 1
         else:
             print(f"{n:.0f}", end=" ")
@@ -54,7 +54,7 @@ def collatz_sequence(n):
         print(f"{n:.0f}",end=" ")
         inner(n / 2)
     elif n == 1:
-        print(1, end=" ")
+        print(1)
     else:
         print(f"{n:.0f}",end=" ")
         inner(3 * n + 1)
