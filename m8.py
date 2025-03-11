@@ -39,14 +39,22 @@ def mystery3(number):
     return total
 
 #Collatz Sequence function
-
 def collatz_sequence(n):
+    def inner(n):
+        if n % 2 == 0:
+            print(f"{n:.0f}", end=" ")
+            return collatz_sequence(n / 2)
+        elif n == 1:
+            print(1, end=" ")
+            return 1
+        else:
+            print(f"{n:.0f}", end=" ")
+            return collatz_sequence(3 * n + 1)
     if n % 2 == 0:
         print(f"{n:.0f}",end=" ")
-        return collatz_sequence(n / 2)
+        inner(n / 2)
     elif n == 1:
         print(1, end=" ")
-        return 1
     else:
         print(f"{n:.0f}",end=" ")
-        return collatz_sequence(3 * n + 1)
+        inner(3 * n + 1)
