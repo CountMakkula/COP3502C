@@ -1,7 +1,7 @@
 #Backwards string function
 def print_backwards(string):
     if len(string) <= 1:
-        print(string)
+        print(string,end="")
     else:
         print(string[-1],end="")
         print_backwards(string[:-1])
