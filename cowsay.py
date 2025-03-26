@@ -23,10 +23,10 @@ def find_cow(name, cows):
 #Main function
 def main():
     # -l command
-    if "-l" in sys.argv:
+    if sys.argv[1] == "-l":
         print(list_cows(get_cows()))
     # -n command
-    elif "-n" in sys.argv:
+    elif sys.argv[1] == "-n":
         SelectedCow = find_cow(sys.argv[2], get_cows())
         if SelectedCow is None:
             print(f"Could not find {sys.argv[2]} cow!")
