@@ -60,13 +60,14 @@ def AddPakuri():
     if NewPakudex.get_size() == NewPakudex.get_capacity():
         print("Error: Pakudex is full!")
         Menu()
-    name = input("Enter the name of the species to add: ")
-    check = NewPakudex.add_pakuri(name)
-    if check:
-        print(f"Pakuri species {name} successfully added!")
     else:
-        print("Error: Pakudex already contains this species!")
-    Menu()
+        name = input("Enter the name of the species to add: ")
+        check = NewPakudex.add_pakuri(name)
+        if check:
+            print(f"Pakuri species {name} successfully added!")
+        else:
+            print("Error: Pakudex already contains this species!")
+        Menu()
 
 #Evolve pakuri function
 def EvolvePakuri():
