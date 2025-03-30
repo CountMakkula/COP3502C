@@ -4,7 +4,11 @@ from pakudex import Pakudex
 
 def Menu():
     print("\nPakudex Main Menu\n-----------------\n1. List Pakuri\n2. Show Pakuri\n3. Add Pakuri\n4. Evolve Pakuri\n5. Sort Pakuri\n6. Exit\n")
-    Option = int(input("What would you like to do? "))
+    Option = input("What would you like to do? ")
+    try:
+        Option = int(Option)
+    except:
+        Option = 0
     #List pakuri
     if Option == 1:
         ListPakuri()
