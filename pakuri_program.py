@@ -25,7 +25,7 @@ def Menu():
         print("Thanks for using Pakudex! Bye!")
     #Invalid command
     else:
-        print("Invalid command!")
+        print("Unrecognized menu selection!")
         Menu()
 
 #List pakuri function
@@ -53,12 +53,13 @@ def ShowPakuri():
 
 #Add pakuri function
 def AddPakuri():
+    if NewPakudex.get_size() == NewPakudex.get_capacity():
+        print("Error: Pakudex is full!")
+        Menu()
     name = input("Enter the name of the species to add: ")
     check = NewPakudex.add_pakuri(name)
     if check:
         print(f"Pakuri species {name} successfully added!")
-    elif NewPakudex.get_size() == NewPakudex.get_capacity():
-        print("Error: Pakudex is full!")
     else:
         print("Error: Pakudex already contains this species!")
     Menu()
@@ -82,7 +83,18 @@ def SortPakuri():
 #Main function
 if __name__ == "__main__":
     print("Welcome to Pakudex: Tracker Extraordinaire!")
-    Capacity = int(input("Enter max capacity of the Pakudex: "))
+    Capacity = input("Enter max capacity of the Pakudex: ")
+    try:
+        Capacity = int(Capacity)
+    except:
+        Capacity = Capacity
+    while type(Capacity) != int or Capacity < 1:
+        print("Please enter a valid size.")
+        Capacity = input("Enter max capacity of the Pakudex: ")
+        try:
+            Capacity = int(Capacity)
+        except:
+            Capacity = Capacity
     print(f"The Pakudex can hold {Capacity} species of Pakuri.")
     NewPakudex = Pakudex(Capacity)
     Menu()
