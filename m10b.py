@@ -31,7 +31,7 @@ class MemoryCalculator(Calculator):
     def add(self, x, y):
         if x == "RESULT":
             x = self.result
-        elif y == "RESULT":
+        if y == "RESULT":
             y = self.result
         self.result = super().add(x, y)
         return self.result
@@ -39,7 +39,7 @@ class MemoryCalculator(Calculator):
     def sub(self, x, y):
         if x == "RESULT":
             x = self.result
-        elif y == "RESULT":
+        if y == "RESULT":
             y = self.result
         self.result = super().sub(x, y)
         return self.result
@@ -68,4 +68,4 @@ class ImprovedFraction(Fraction):
         return self.multiply(other)
 
     def __str__(self):
-        return f"{self.num}/{self.den}"
+        return f"{self._num}/{self._den}"
