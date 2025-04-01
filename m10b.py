@@ -26,6 +26,7 @@ class SecureAccount(Account):
 #Memory calculator class
 class MemoryCalculator(Calculator):
     def __init__(self):
+        super().__init__()
         self.result = 0
 
     def add(self, x, y):
