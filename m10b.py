@@ -47,14 +47,14 @@ class MemoryCalculator(Calculator):
 #Fractions class
 class ImprovedFraction(Fraction):
     def add(self, other):
-        if other // 1 == other:
+        if type(other) == int:
             N = ImprovedFraction(other, 1)
             return super().add(N)
         else:
             return super().add(other)
 
     def multiply(self, other):
-        if other // 1 == other:
+        if type(other) == int:
             N = ImprovedFraction(other, 1)
             return super().multiply(N)
         else:
