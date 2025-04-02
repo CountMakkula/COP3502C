@@ -18,7 +18,7 @@ def find_cow(name, cows):
     for i in cows:
         if i.name == name:
             return i.image, i
-    return None
+    return None, i
 
 #Main function
 def main():
