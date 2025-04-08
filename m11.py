@@ -2,7 +2,7 @@
 from functions import *
 import unittest
 
-class TestCase1(unittest.TestCase):
+class TestCase(unittest.TestCase):
     def prime1(self):
         self.assertTrue(is_prime(7))
         self.assertFalse(is_prime(6))
