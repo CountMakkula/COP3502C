@@ -15,5 +15,9 @@ class TestCase(unittest.TestCase):
     def test_prime3(self):
         self.assertTrue(is_prime(2))
 
+class TestCase(unittest.TestCase):
+    def test_vowel1(self):
+        self.assertEqual(remove_vowels("Banjo Threeieaeiou"), "Bnj Thr")
+
 if __name__ == "__main__":
     unittest.main()
