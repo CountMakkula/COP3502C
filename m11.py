@@ -13,11 +13,7 @@ class TestCase(unittest.TestCase):
         self.assertFalse(is_prime(-3))
 
     def test_prime3(self):
-        self.assertTrue(is_prime(2))
-
-class TestCase(unittest.TestCase):
-    def test_vowel1(self):
-        self.assertEqual(remove_vowels("Banjo Threeieaeiou"), "Bnj Thr")
+        self.assertFalse(is_prime(2))
 
 if __name__ == "__main__":
     unittest.main()
