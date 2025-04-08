@@ -13,7 +13,7 @@ class TestCase(unittest.TestCase):
         self.assertFalse(is_prime(-3))
 
     def test_prime3(self):
-        self.assertFalse(is_prime(2))
+        self.assertTrue(is_prime(2))
 
 if __name__ == "__main__":
     unittest.main()
