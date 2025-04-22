@@ -40,11 +40,11 @@ def WriteSpeciesFile(inputFilename, outputFilename):
 
 def main():
     ContestFile = 'contest.txt'
-    WinnersFile = 'winners.txt'
+    WinnerFile = 'winner.txt'
     SpeciesFile = 'pakuri.txt'
 
     winner = GetWinner(ContestFile)
-    WriteWinnerFile(winner, WinnersFile)
+    WriteWinnerFile(winner, WinnerFile)
     WriteSpeciesFile(ContestFile, SpeciesFile)
 
 if __name__ == "__main__":
